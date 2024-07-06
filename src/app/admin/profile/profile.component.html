@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title mb-0">Profile</h4>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+        <div class="row g-4">
+
+            <div class="col-xxl-12 col-md-12">
+                <div class="mb-3 text-center">
+                    <label for="category-image-input" class="form-label d-block">Image <span class="text-danger">*</span></label>
+                    <div class="position-relative d-inline-block">
+                        <div class="position-absolute top-100 start-100 translate-middle">
+                            <label for="category-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Category Image">
+                                <span class="avatar-xs d-inline-block">
+                                    <span class="avatar-title bg-light border rounded-circle text-muted cursor-pointer">
+                                        <i class="ri-image-fill"></i>
+                                    </span>
+                                </span>
+                            </label>
+                            <input class="form-control d-none" id="category-image-input" (change)="fileChange($event)" type="file" accept="image/png, image/gif, image/jpeg">
+                        </div>
+                        <div class="avatar-lg">
+                            <div class="avatar-title bg-light rounded-3">
+                                <img src="#" alt="" id="category-img" class="avatar-md h-auto rounded-3 object-fit-cover">
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="error-msg mt-1">Please add a category images.</div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-sm-6">
+                <div>
+                    <label for="labelInput" class="form-label"> Name
+                    </label>
+                    <input type="text" pInputText class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <div>
+                    <label for="labelInput" class="form-label">Phone
+                    </label>
+                    <input type="text" pInputText class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div>
+                    <label for="labelInput" class="form-label">Email
+                    </label>
+                    <input type="email" pInputText class="form-control bg-light " style="cursor:no-drop;"  value="admin@malatradingpakistan.com" disabled>
+                </div>
+            </div>
+
+
+            <div class="col-xxl-12 col-md-12">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-outline-primary ml-2" routerLink="/staff-list">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

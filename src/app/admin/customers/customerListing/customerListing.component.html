@@ -1,0 +1,141 @@
+<h4 class="card-title my-3">Customers List</h4>
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="col-sm">
+            <div class="d-flex">
+                <div class="search-box1">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+                <button class="btn btn-primary py-2">
+                    <i class="ri-search-line search-icon"></i>
+                </button>
+            </div>
+        </div>
+        <button class="btn btn-primary d-flex align-items-center" routerLink="/add-customer"> <i class="pi pi-plus mr-2"></i> Add New </button>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+
+        
+        
+        <!-- styleClass="p-datatable-gridlines"  -->
+        <p-table 
+        [value]="customers" 
+        [paginator]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"        
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Country</th>
+                    <th>CM Short Code</th>
+                    <th>Invoice Name</th>
+                    <th>Address</th>
+                    <th>Phone#</th>
+                    <th>Email</th>
+                    <th>Supplier/Company Name</th>
+                    <th>Supplier/Company Phone</th>
+                    <th>Supplier/Company Email</th>
+                    <th>Supplier/Company Address</th>
+                    <th>Consignee Name</th>
+                    <th>Consginee Phone</th>
+                    <th>Consginee Email</th>
+                    <th>Consignee Address</th>
+                    <th>DHL Address</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr>
+                    <td><a routerLink="/customer-detail">0032{{customer.id}}</a></td>
+                    <td>{{customer.Country}}</td>
+                    <td>{{customer.CMShortCode}}</td>
+                    <td>{{customer.InvoiceName}}</td>
+                    <td>{{customer.Address}}</td>
+                    <td>{{customer.Phone}}</td>
+                    <td>{{customer.Email}}</td>
+                    <td>{{customer.SupplierName}}</td>
+                    <td>{{customer.SupplierPhone}}</td>
+                    <td>{{customer.SupplierEmail}}</td>
+                    <td>{{customer.SupplierAddress}}</td>
+                    <td>{{customer.ConsigneeName}}</td>
+                    <td>{{customer.ConsgineePhone}}</td>
+                    <td>{{customer.ConsgineeEmail}}</td>
+                    <td>{{customer.ConsigneeAddress}}</td>
+                    <td>{{customer.DHLAddress}}</td>
+                    <td class="text-center">
+
+                        <div class="dropdown">
+                            <button class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted" type="button" #btnn
+                                (click)="op.toggle($event)">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
+                            <p-overlayPanel #op class="dropdown-menu">
+                                <ng-template pTemplate="content">
+                                    <ng-container>                                        
+                                        <a class="dropdown-item light-red-bg-text" routerLink="/customer-detail"><i class="pi pi-eye"></i> View Details</a>
+                                        <a class="dropdown-item light-red-bg-text" (click)="manageAccess()"><i class="pi pi-key"></i> Manage Access</a>
+                                        <a class="dropdown-item light-red-bg-text" routerLink="/update-customer"><i class="pi pi-refresh"></i> Update</a>
+                                        <a class="dropdown-item light-red-bg-text" href="javascript:;" (click)="removecutomer(customer.id)"><i class="pi pi-trash"></i> Delete</a>
+                                    </ng-container>        
+                                </ng-template>
+                            </p-overlayPanel>
+                        </div>
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div><!-- end card-body -->
+
+</div>
+
+
+<p-dialog [visible]="removemodal" [modal]="true" [style]="{width: '28vw'}">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="mt-0 text-center">
+                
+                <div class="mt-0 pt-2 fs-15 mx-4 mx-sm-5">
+                    <h4>Are you Sure ?</h4>
+                    <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                </div>
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                <button type="button" class="btn w-sm btn-light" (click)="removemodal = false">Cancel</button>
+                <button type="button" class="btn w-sm btn-danger " id="delete-record" (click)="removemodal = false">Yes,
+                    Delete It!</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<!--end modal -->
+
+
+
+<p-dialog header="Manage Access"
+[style]="{width: '498px'}" class="modal-dialog modal-dialog-centered" [visible]="access" [modal]="true">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="mt-0">
+                
+                <div class="mt-lg-0 my-3">
+                    <div class="form-check form-check-inline pl-0 mb-3" *ngFor="let item of MENU1">
+                        <p-checkbox name="group1" value="option1" [binary]="true" inputId="ny"
+                            [label]="item.label"></p-checkbox>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="d-flex gap-2 justify-content-end mt-5 mb-2">
+                <button type="button" class="btn w-sm btn-light" (click)="access = false">Cancel</button>
+                <button type="button" class="btn w-sm btn-success " id="delete-record" (click)="access = false">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<!--end modal -->

@@ -1,0 +1,538 @@
+<app-breadcrumbs title="Overview" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="row gx-lg-4">
+    <div class="col-md-6">
+        <div class="row sticky-side-div">
+            <div class="row">
+                <div class="col-md-2">
+                    <ngx-slick-carousel [config]="config" class="carousel swiper productSwiper mb-3 mb-lg-0">
+                        <div class="swiper-slide swiper-slide-thumb-active swiperlist" ngxSlickItem
+                            (click)="slidePreview('1',$event)">
+                            <div class="product-thumb rounded cursor-pointer">
+                                <img src="assets/images/cars/audi/1.jpg" alt="" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiperlist" (click)="slidePreview('2',$event)" ngxSlickItem>
+                            <div class="product-thumb rounded cursor-pointer">
+                                <img src="assets/images/cars/audi/3.jpg" alt="" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiperlist" (click)="slidePreview('3',$event)" ngxSlickItem>
+                            <div class="product-thumb rounded cursor-pointer">
+                                <img src="assets/images/cars/audi/2.jpg" alt="" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiperlist" (click)="slidePreview('4',$event)" ngxSlickItem>
+                            <div class="product-thumb rounded cursor-pointer">
+                                <img src="assets/images/cars/audi/4.jpg" alt="" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiperlist" (click)="slidePreview('5',$event)" ngxSlickItem>
+                            <div class="product-thumb rounded cursor-pointer">
+                                <img src="assets/images/cars/audi/4.jpg" class="img-fluid" />
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <!--end col-->
+                <div class="col-md-10">
+                    <ngx-slick-carousel class="carousel bg-light" #slickModal="slick-carousel" [config]="slideConfig"
+                        (afterChange)="slickChange($event)">
+                        <div ngxSlickItem *ngFor="let slide of slides" class="">
+                            <img src="{{ slide.previewImageSrc }}" alt="" width="100%">
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+
+                <!--end col-->
+            </div>
+        </div><!--end row-->
+    </div>
+
+    <div class="col-md-6">
+        <div class="mt-xl-0">
+            <div class="d-flex">
+                <div class="flex-grow-1">
+                    <h4>Audi RS e-tron GT</h4>
+                    <p>Stock No: HAF2111</p>
+
+                    <p class="m-0">Car Price (FOBI)</p>
+                    <h3 class="m-0 text-danger">$2,67,280</h3>
+
+                    <div class="col-12">
+                        <div>
+                            <label for="labelInput" class="form-label">Country</label>
+
+                            <select pInputText name="" class="form-control form-select" id="">
+                                <option value="">Select Country</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div>
+                            <label for="labelInput" class="form-label">Destination Port</label>
+
+                            <select pInputText name="" class="form-control form-select" id="">
+                                <option value="">Select Destination Port</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-lg-0">
+                        <div class="form-check form-check-inline pl-0">
+                            <p-checkbox name="group1" value="option1" [binary]="true"  inputId="ny"
+                                label="Marine Insurance"></p-checkbox>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <p-checkbox name="group1" value="option1" [binary]="true"
+                                inputId="ny" label="Pro-export inspection"></p-checkbox>
+                        </div>
+                    </div>
+
+                    <p class="text-muted py-2">
+                        Please select if Pre-ship inspection is required by your country regulation to import to your country.
+                    </p>
+
+                    <button class="btn btn-success">
+                        Get A Price Quote
+                    </button>
+
+                    <button class="btn btn-info ms-2" (click)="reservationModal()">
+                        Reservation 
+                    </button>
+
+                    <button class="btn btn-outline-danger ms-2">
+                        <i class="ri-calculator"></i> Calculate Price
+                    </button>
+
+                    <!-- <div class="hstack gap-3 flex-wrap">
+                        <div><a href="javascript:void(0);" class="text-primary d-block">RS e-tron GT</a></div>
+                        <div class="vr"></div>
+                        <div class="text-muted">Seller : <span class="text-body fw-medium">Mala Trading Pakistan</span>
+                        </div>
+                        <div class="vr"></div>
+                        <div class="text-muted">Published : <span class="text-body fw-medium">28 April, 2024</span>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- <div class="flex-shrink-0">
+                    <a routerLink="/products/product-create" class="btn btn-soft-secondary btn-icon" pTooltip="Edit"
+                        tooltipPosition="top"><i class="ri-pencil-fill align-bottom"></i></a>
+                </div> -->
+            </div>
+
+
+            <!-- <h5 class="fs-15">Product Details:</h5>
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless align-middle description-table">
+                    <tr>
+                        <th>Buy Date </th>
+                        <td>01 April, 2024</td>
+                    </tr>
+                    <tr>
+                        <th>Stock Id </th>
+                        <td>STK001</td>
+                    </tr>
+                    <tr>
+                        <th>Chassis</th>
+                        <td>CHS001</td>
+                    </tr>
+                    <tr>
+                        <th>Model</th>
+                        <td>Audi</td>
+                    </tr>
+                    <tr>
+                        <th>Year</th>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <th>Manufacture Year </th>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <th>In Yard </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Documents </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Sold </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Paid </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <th>Consignee</th>
+                        <td>John Smith </td>
+                    </tr>
+                    <tr>
+                        <th>Ship OK </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Inspection</th>
+                        <td>Passed</td>
+                    </tr>
+                    <tr>
+                        <th>Book</th>
+                        <td>Booked</td>
+                    </tr>
+                    <tr>
+                        <th>BL</th>
+                        <td>BL001</td>
+                    </tr>
+                    <tr>
+                        <th>Rel OK </th>
+                        <td><i class="ri-checkbox-circle-line fs-20 text-success align-middle ng-star-inserted"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Customer</th>
+                        <td>ABC Corporation </td>
+                    </tr>
+                    <tr>
+                        <th>Profit,JPY </th>
+                        <td>50000</td>
+                    </tr>
+                    <tr>
+                        <th>Buy Price JPY </th>
+                        <td>2000000</td>
+                    </tr>
+                    <tr>
+                        <th>Auction fees </th>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <th>Transportation</th>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <th>Ship Charges </th>
+                        <td>15000</td>
+                    </tr>
+
+                    <tr>
+                        <th>Yard Cost </th>
+                        <td>2000</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>Repairs JPY </th>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <th>Inspection Cost </th>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <th>Freight Cost </th>
+                        <td>3000</td>
+                    </tr>
+                    <tr>
+                        <th>DHL Cost </th>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <th>CNF Invoice </th>
+                        <td>CNF001</td>
+                    </tr>
+                    <tr>
+                        <th>Deposit Ratio </th>
+                        <td>0.2 </td>
+                    </tr>
+                    <tr>
+                        <th>Received % </th>
+                        <td>0.8 </td>
+                    </tr>
+                    <tr>
+                        <th>Deposit</th>
+                        <td>
+                            <div class="badge bg-success m-2 text-left ng-star-inserted"> Amount: $1,000.00<br> Date:
+                                2024-04-02 </div>
+                            <div class="badge bg-success m-2 text-left ng-star-inserted"> Amount: $500.00<br> Date:
+                                2024-04-10 </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Exchange Rate </th>
+                        <td>
+                            <div class="badge bg-info m-2 text-left ng-star-inserted"> Rate: $110.00<br> Date:
+                                2024-04-01<br></div>
+                            <div class="badge bg-info m-2 text-left ng-star-inserted"> Rate: $108.00<br> Date:
+                                2024-04-15<br></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Deposit JPY </th>
+                        <td>
+                            <div class="badge bg-warning m-2 text-left ng-star-inserted"> Amount: $10,000.00<br> Date:
+                                2024-04-02 </div>
+                            <div class="badge bg-warning m-2 text-left ng-star-inserted"> Amount: $5,000.00<br> Date:
+                                2024-04-10 </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Remaining Balance </th>
+                        <td>$1,500,000.00 </td>
+                    </tr>
+                    <tr>
+                        <th>BID Amount </th>
+                        <td>$1,800,000.00 </td>
+                    </tr>
+                    <tr>
+                        <th>Auction Name </th>
+                        <td>Auction1</td>
+                    </tr>
+                    <tr>
+                        <th>LOT# </th>
+                        <td>LOT001</td>
+                    </tr>
+                    <tr>
+                        <th>KM</th>
+                        <td>50000</td>
+                    </tr>
+                    <tr>
+                        <th>M3</th>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th>Color</th>
+                        <td>Red</td>
+                    </tr>
+                    <tr>
+                        <th>POD</th>
+                        <td>Port1</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>Departure Date </th>
+                        <td>20 Apri, 2024</td>
+                    </tr>
+
+                    <tr>
+                        <th>Discharge</th>
+                        <td>Port2</td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td>Japan</td>
+                    </tr>
+                    <tr>
+                        <th>ETA</th>
+                        <td>2024-05-01 </td>
+                    </tr>
+                    <tr>
+                        <th>Shipping Line </th>
+                        <td>ShipLine1 </td>
+                    </tr>
+                    <tr>
+                        <th>Ship Name, Voyage </th>
+                        <td>Ship1-Voyage1 </td>
+                    </tr>
+                    <tr>
+                        <th>Consignee Name </th>
+                        <td>John Smith </td>
+                    </tr>
+                    <tr>
+                        <th>Consignee Address </th>
+                        <td>123 Main St, Anytown </td>
+                    </tr>
+                    <tr>
+                        <th>Consignee Phone </th>
+                        <td>555-1234 </td>
+                    </tr>
+                    <tr>
+                        <th>Consignee Email </th>
+                        <td>john.smith@example.com </td>
+                    </tr>
+                    <tr>
+                        <th>Notify Party </th>
+                        <td>Notify Party Inc. </td>
+                    </tr>
+
+                    <tr>
+                        <th>Equipment </th>
+                        <td>Container</td>
+                    </tr>
+                    <tr>
+                        <th>Memo</th>
+                        <td>Some memo </td>
+                    </tr>
+                    <tr>
+                        <th>Export Certificate </th>
+                        <td>exp001.pdf </td>
+                    </tr>
+                    <tr>
+                        <th>Inspection Certificate </th>
+                        <td>insp001.pdf </td>
+                    </tr>
+
+                    <tr>
+                        <th>BL Copy </th>
+                        <td>bl001.pdf </td>
+                    </tr>
+                    <tr>
+                        <th>Surrender BL </th>
+                        <td>sbl001.pdf
+                        </td>
+                    </tr>
+
+                </table>
+            </div> -->
+
+
+        </div>
+    </div>
+    <!-- end row -->
+</div>
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-6">
+        <h4>Overview</h4>
+
+
+        <table class="table column-stripe table-responsive border">
+            <tr>
+                <th>
+                    Reference No.
+                </th>
+                <td>
+                    HAF2111
+                </td>
+                <th>
+                    Mileage
+                </th>
+                <td>
+                    90,969 km
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Chasis Number
+                </th>
+                <td>
+                    WDD205064
+                </td>
+                <th>
+                    Color
+                </th>
+                <td>
+                    White
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    First Registration Date
+                </th>
+                <td>
+                    2019/02
+                </td>
+                <th>
+                    Steering
+                </th>
+                <td>
+                    RHD
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Manufacturing Year
+                </th>
+                <td>
+                    2018
+                </td>
+                <th>
+                    Drive
+                </th>
+                <td>
+                    4WD
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Model Type
+                </th>
+                <td>
+                    
+                </td>
+                <th>
+                    Fuel
+                </th>
+                <td>
+                    Petrol
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<p-dialog [modal]="true" [closable]="true" [draggable]="false" [(visible)]="reservation" header="Reservation"
+    [style]="{width: '498px'}" class="modal-dialog modal-dialog-centered">
+    <ng-template pTemplate="content">
+
+        <div class="mb-3">
+            <label for="labelInput" class="form-label">Consignee Name</label>
+            
+            <select pInputText name="" class="form-control form-select" id="">
+                <option value="">Select Consignee Name</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="labelInput" class="form-label">Consignee Phone</label>
+            
+            <select pInputText name="" class="form-control form-select" id="">
+                <option value="">Select Consignee Phone</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="labelInput" class="form-label">Consignee Email</label>
+            
+            <select pInputText name="" class="form-control form-select" id="">
+                <option value="">Select Consignee Email</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="labelInput" class="form-label">Consignee Address</label>
+            
+            <select pInputText name="" class="form-control form-select" id="">
+                <option value="">Select Consignee Address</option>
+            </select>
+        </div>
+
+
+        <div class="d-flex gap-2 justify-content-end mt-4 mb-2">
+            <button type="button" class="btn w-sm btn-light btn-hover" id="deleteRecord-close" data-bs-dismiss="modal"
+                (click)="reservation = false">Close</button>
+            <button type="button" class="btn w-sm btn-success btn-hover" (click)="reservation = false" id="delete-record">Submit</button>
+        </div>
+    </ng-template>
+</p-dialog>
+<!--end modal -->

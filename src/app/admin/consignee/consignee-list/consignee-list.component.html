@@ -1,0 +1,101 @@
+<h4 class="card-title my-3">Consignee List</h4>
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="col-sm">
+            <div class="d-flex">
+                <div class="search-box1">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+                <button class="btn btn-primary py-2">
+                    <i class="ri-search-line search-icon"></i>
+                </button>
+            </div>
+        </div>
+        <button class="btn btn-primary d-flex align-items-center" routerLink="/add-consignee"> <i class="pi pi-plus mr-2"></i> Add New </button>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+
+        
+        
+        <!-- styleClass="p-datatable-gridlines"  -->
+        <p-table 
+        [value]="users" 
+        [paginator]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"        
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Consignee ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>0034{{user.id}}</td>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Phone}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>13th Street. 47 W 13th St, New York</td>
+                    <td>{{user.Date}}</td>
+                    <td>
+                        <!-- {{user.Status}} -->
+                        <div class="form-check form-switch p-l-0 ">
+                            <input class="form-check-input ml-0" type="checkbox" role="switch" id="SwitchCheck1" [checked]="user.Status">
+                            <label class="form-check-label" for="SwitchCheck1"> {{ user.Status == true ? 'Active' : 'Inactive' }}</label>
+                        </div>
+                    </td>
+                    <td class="text-center">
+
+                        <div class="dropdown">
+                            <button class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted" type="button" #btnn
+                                (click)="op.toggle($event)">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
+                            <p-overlayPanel #op class="dropdown-menu">
+                                <ng-template pTemplate="content">
+                                    <ng-container>                                        
+                                        <a class="dropdown-item light-red-bg-text" routerLink="/update-consignee"><i class="pi pi-refresh"></i> Update</a>
+                                        <a class="dropdown-item light-red-bg-text" href="javascript:;" (click)="removecutomer(user.id)"><i class="pi pi-trash"></i> Delete</a>
+                                    </ng-container>        
+                                </ng-template>
+                            </p-overlayPanel>
+                        </div>
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div><!-- end card-body -->
+
+</div>
+
+
+<p-dialog [visible]="removemodal" [modal]="true" [style]="{width: '28vw'}">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="mt-0 text-center">
+                
+                <div class="mt-0 pt-2 fs-15 mx-4 mx-sm-5">
+                    <h4>Are you Sure ?</h4>
+                    <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                </div>
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                <button type="button" class="btn w-sm btn-light" (click)="removemodal = false">Cancel</button>
+                <button type="button" class="btn w-sm btn-danger " id="delete-record" (click)="removemodal = false">Yes,
+                    Delete It!</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<!--end modal -->

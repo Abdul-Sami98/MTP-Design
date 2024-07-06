@@ -1,0 +1,131 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title mb-0">Add Payment</h4>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+        <div class="row g-4">
+
+
+            <div class="col-xxl-12 col-md-12">
+                <div class="mb-3 text-center">
+                    <label for="category-image-input" class="form-label d-block">Image <span class="text-danger">*</span></label>
+                    <div class="position-relative d-inline-block">
+                        <div class="position-absolute top-100 start-100 translate-middle">
+                            <label for="category-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Category Image">
+                                <span class="avatar-xs d-inline-block">
+                                    <span class="avatar-title bg-light border rounded-circle text-muted cursor-pointer">
+                                        <i class="ri-image-fill"></i>
+                                    </span>
+                                </span>
+                            </label>
+                            <input class="form-control d-none" id="category-image-input" (change)="fileChange($event)" type="file" accept="image/png, image/gif, image/jpeg">
+                        </div>
+                        <div class="avatar-lg">
+                            <div class="avatar-title bg-light rounded-3">
+                                <img src="#" alt="" id="category-img" class="avatar-md h-auto rounded-3 object-fit-cover">
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="error-msg mt-1">Please add a category images.</div>
+                </div>
+            </div>
+
+            <!-- end card -->
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="buyDateInput" class="form-label">Payment Date</label>
+                    <input type="date" id="buyDateInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Customer" class="form-label">Income</label>
+                    <select pInputText name="" class="form-control form-select" id="">
+                        <option value="">Select Income</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Remitter" class="form-label">Remitter</label>
+                    <input type="text" id="Remitter" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Customer" class="form-label">Customer</label>
+                    <select pInputText name="" class="form-control form-select" id="">
+                        <option value="">Select Customer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Amount Received" class="form-label">Amount Received</label>
+                    <input type="text" id="Amount Received" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Amount Per TT Copy" class="form-label">Amount Per TT Copy</label>
+                    <input type="text" id="Amount Per TT Copy" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Bank Charges" class="form-label">Bank Charges</label>
+                    <input type="text" id="Bank Charges" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="TT Date" class="form-label">TT Date</label>
+                    <input type="text" id="TT Date" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Ref Number And Link" class="form-label">Ref Number And Link</label>
+                    <input type="file" id="Ref Number And Link" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Message" class="form-label">Message</label>
+                    <input type="text" id="Message" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="Internal Memo" class="form-label">Internal Memo</label>
+                    <input type="text" id="Internal Memo" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="rate of Receiving" class="form-label">Rate of Receiving</label>
+                    <input type="text" id="rate of Receiving" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-xxl-12 col-md-12">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-outline-primary ml-2" routerLink="/income-list">Cancel</button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

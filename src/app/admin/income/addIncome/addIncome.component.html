@@ -1,0 +1,476 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title mb-0">Add Income</h4>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+        <div class="row g-4">
+
+
+            <div class="col-xxl-12 col-md-12">
+                <div class="mb-2">
+                    <label for="buyDateInput" class="form-label">Add Images</label>
+                    <p-fileUpload name="myfile[]" url="https://www.primefaces.org/cdn/api/upload.php" [multiple]="true"
+                        accept="image/*">
+                        <ng-template pTemplate="toolbar">
+                            <div class="py-3">Upload 3 Files</div>
+                        </ng-template>
+                        <ng-template let-file pTemplate="file">
+                            <div>Custom UI to display a file</div>
+                        </ng-template>
+                    </p-fileUpload>
+                </div>
+            </div>
+
+            <!-- end card -->
+
+            <!-- <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="buyDateInput" class="form-label">Buy Date</label>
+                    <input type="date" id="buyDateInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="stockIdInput" class="form-label">Stock Id</label>
+                    <input type="text" id="stockIdInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="chassisInput" class="form-label">Chassis</label>
+                    <input type="text" id="chassisInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="modelInput" class="form-label">Model</label>
+                    <input type="text" id="modelInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="yearInput" class="form-label">Year</label>
+                    <input type="number" id="yearInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="manufactureYearInput" class="form-label">Manufacture Year</label>
+                    <input type="number" id="manufactureYearInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-xxl-12 col-md-12">
+
+                <div class="mt-lg-0">
+                    <div class="form-check form-check-inline pl-0">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="InYard" inputId="ny"
+                            label="In Yard"></p-checkbox>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="Document" inputId="ny"
+                            label="Document"></p-checkbox>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="Sold" inputId="ny"
+                            label="Sold"></p-checkbox>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="Paid" inputId="ny"
+                            label="Paid"></p-checkbox>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="consigneeInput" class="form-label">Consignee</label>
+                    <input type="text" id="consigneeInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="mt-lg-0 mt-5">
+                    <div class="form-check form-check-inline pl-0">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="ShipOK" inputId="ny"
+                            label="Ship OK"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="inspectionInput" class="form-label">Inspection</label>
+                    <input type="text" id="inspectionInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="bookInput" class="form-label">Book</label>
+                    <input type="text" id="bookInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="blInput" class="form-label">BL</label>
+                    <input type="text" id="blInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="mt-lg-0 mt-5">
+                    <div class="form-check form-check-inline pl-0">
+                        <p-checkbox name="group1" value="option1" [binary]="true" [(ngModel)]="RelOK" inputId="ny"
+                            label="Rel OK"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="relInput" class="form-label">Rel</label>
+                    <input type="text" id="relInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="customerInput" class="form-label">Customer</label>
+                    <input type="text" id="customerInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="profitJPYInput" class="form-label">Profit, JPY</label>
+                    <input type="number" id="profitJPYInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="buyPriceJPYInput" class="form-label">Buy Price JPY</label>
+                    <input type="number" id="buyPriceJPYInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="auctionFeesInput" class="form-label">Auction fees</label>
+                    <input type="number" id="auctionFeesInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="transportationInput" class="form-label">Transportation</label>
+                    <input type="number" id="transportationInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="shipChargesInput" class="form-label">Ship Charges</label>
+                    <input type="number" id="shipChargesInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="yardCostInput" class="form-label">Yard Cost</label>
+                    <input type="number" id="yardCostInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="repairsJPYInput" class="form-label">Repairs JPY</label>
+                    <input type="number" id="repairsJPYInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="inspectionCostInput" class="form-label">Inspection Cost</label>
+                    <input type="number" id="inspectionCostInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="freightCostInput" class="form-label">Freight Cost</label>
+                    <input type="number" id="freightCostInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="dhlCostInput" class="form-label">DHL Cost</label>
+                    <input type="number" id="dhlCostInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="cnfInvoiceInput" class="form-label">CNF Invoice</label>
+                    <input type="text" id="cnfInvoiceInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="depositRatioInput" class="form-label">Deposit Ratio</label>
+                    <input type="number" id="depositRatioInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="receivedPercentageInput" class="form-label">Received %</label>
+                    <input type="number" id="receivedPercentageInput" class="form-control">
+                </div>
+            </div> -->
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mt-1 mb-2">
+                        <div class="row">
+                            <div class="col-md-6 align-items-end ">
+                                <div class="d-flex p-3">
+                                    <div class="w-100">
+                                        <label for="depositInput" class="form-label">Deposit</label>
+                                        <input type="number" id="depositInput" class="form-control">
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <button class="btn btn-danger ms-2"><i class="ri-subtract-line"></i></button>
+                                        <button class="btn btn-success ms-2"><i class="ri-add-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mt-1 mb-2">
+                        <div class="row">
+                            <div class="col-md-6 align-items-end ">
+                                <div class="d-flex p-3">
+                                    <div class="w-100">
+                                        <label for="depositInput" class="form-label">Exchange Rate</label>
+                                        <input type="number" id="depositInput" class="form-control">
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <button class="btn btn-danger ms-2"><i class="ri-subtract-line"></i></button>
+                                        <button class="btn btn-success ms-2"><i class="ri-add-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mt-1 mb-2">
+                        <div class="row">
+                            <div class="col-md-6 align-items-end ">
+                                <div class="d-flex p-3">
+                                    <div class="w-100">
+                                        <label for="depositInput" class="form-label">Deposit JPY</label>
+                                        <input type="number" id="depositInput" class="form-control">
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <button class="btn btn-danger ms-2"><i class="ri-subtract-line"></i></button>
+                                        <button class="btn btn-success ms-2"><i class="ri-add-line"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div>
+                    <label for="remainingBalanceInput" class="form-label">Remaining Balance</label>
+                    <input type="number" id="remainingBalanceInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- <div class="col-md-3 col-sm-6">
+                    <div>
+                        <label for="exchangeRateInput" class="form-label">Exchange Rate</label>
+                        <input type="number" id="exchangeRateInput" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div>
+                        <label for="depositJPYInput" class="form-label">Deposit JPY</label>
+                        <input type="number" id="depositJPYInput" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div>
+                        <label for="remainingBalanceInput" class="form-label">Remaining Balance</label>
+                        <input type="number" id="remainingBalanceInput" class="form-control">
+                    </div>
+                </div> -->
+                <!-- <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="bidAmountInput" class="form-label">BID Amount</label>
+                    <input type="number" id="bidAmountInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="auctionNameInput" class="form-label">Auction Name</label>
+                    <input type="text" id="auctionNameInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="lotNumberInput" class="form-label">LOT#</label>
+                    <input type="text" id="lotNumberInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="kmInput" class="form-label">KM</label>
+                    <input type="number" id="kmInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="m3Input" class="form-label">M3</label>
+                    <input type="number" id="m3Input" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="colorInput" class="form-label">Color</label>
+                    <input type="text" id="colorInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="podInput" class="form-label">POD</label>
+                    <input type="text" id="podInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="departureDateInput" class="form-label">Departure Date</label>
+                    <input type="date" id="departureDateInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="dischargeInput" class="form-label">Discharge</label>
+                    <input type="text" id="dischargeInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="countryInput" class="form-label">Country</label>
+                    <input type="text" id="countryInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="etaInput" class="form-label">ETA</label>
+                    <input type="date" id="etaInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="shippingLineInput" class="form-label">Shipping Line</label>
+                    <input type="text" id="shippingLineInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="shipNameVoyageInput" class="form-label">Ship Name, Voyage</label>
+                    <input type="text" id="shipNameVoyageInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="consigneeNameInput" class="form-label">Consignee Name</label>
+                    <input type="text" id="consigneeNameInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="consigneeAddressInput" class="form-label">Consignee Address</label>
+                    <input type="text" id="consigneeAddressInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="consigneePhoneInput" class="form-label">Consignee Phone</label>
+                    <input type="tel" id="consigneePhoneInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="consigneeEmailInput" class="form-label">Consignee Email</label>
+                    <input type="email" id="consigneeEmailInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="notifyPartyInput" class="form-label">Notify Party</label>
+                    <input type="text" id="notifyPartyInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="equipmentInput" class="form-label">Equipment</label>
+                    <input type="text" id="equipmentInput" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="memoInput" class="form-label">Memo</label>
+                    <input type="text" id="memoInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="exportCertificateInput" class="form-label">Export Certificate</label>
+                    <input type="file" id="exportCertificateInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="inspectionCertificateInput" class="form-label">Inspection Certificate</label>
+                    <input type="file" id="inspectionCertificateInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="blCopyInput" class="form-label">BL Copy</label>
+                    <input type="file" id="blCopyInput" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div>
+                    <label for="surrenderBLInput" class="form-label">Surrender BL</label>
+                    <input type="file" id="surrenderBLInput" class="form-control">
+                </div>
+            </div> -->
+
+                <div class="col-xxl-12 col-md-12">
+                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-outline-primary ml-2" routerLink="/income-list">Cancel</button>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>

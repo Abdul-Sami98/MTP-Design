@@ -1,0 +1,249 @@
+<h4 class="card-title my-3">Income List</h4>
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="col-sm">
+            <div class="d-flex">
+                <div class="search-box1">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+                <button class="btn btn-primary py-2">
+                    <i class="ri-search-line search-icon"></i>
+                </button>
+            </div>
+        </div>
+        <button class="btn btn-primary d-flex align-items-center" routerLink="/add-income"> <i
+                class="pi pi-plus mr-2"></i> Add New </button>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+
+
+
+        <!-- styleClass="p-datatable-gridlines"  -->
+        <p-table [value]="vehicles" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[5, 10, 20]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <!-- <th>Buy Date</th>
+                    <th>Stock Id</th>
+                    <th>Chassis</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Manufacture Year</th>
+                    <th class="text-center">In Yard</th>
+                    <th class="text-center">Documents</th>
+                    <th class="text-center">Sold</th>
+                    <th class="text-center">Paid</th>
+                    <th>Consignee</th>
+                    <th class="text-center">Ship OK</th>
+                    <th>Inspection</th>
+                    <th>Book</th>
+                    <th>BL</th>
+                    <th class="text-center">Rel OK</th>
+                    <th>Rel</th>
+                    <th>Customer</th>
+                    <th>Profit,JPY</th>
+                    <th>Buy Price JPY</th>
+                    <th>Auction fees</th>
+                    <th>Transportation</th>
+                    <th>Ship Charges</th>
+                    <th>Yard Cost</th>
+                    <th>Repairs JPY</th>
+                    <th>Inspection Cost</th>
+                    <th>Freight Cost</th>
+                    <th>DHL Cost</th>
+                    <th>CNF Invoice</th>
+                    <th>Deposit Ratio</th>
+                    <th>Received %</th> -->
+                    <th>Deposit</th>
+                    <th>Exchange Rate</th>
+                    <th>Deposit JPY</th>
+                    <th>Remaining Balance</th>
+                    
+                    <!-- <th>BID Amount</th>
+                    <th>Auction Name</th>
+                    <th>LOT#</th>
+                    <th>KM</th>
+                    <th>M3</th>
+                    <th>Color</th>
+                    <th>POD</th>
+                    <th>Departure Date</th>
+                    <th>Discharge</th>
+                    <th>Country</th>
+                    <th>ETA</th>
+                    <th>Shipping Line</th>
+                    <th>Ship Name, Voyage</th>
+                    <th>Consignee Name</th>
+                    <th>Consignee Address</th>
+                    <th>Consignee Phone</th>
+                    <th>Consignee Email</th>
+                    <th>Notify Party</th>
+                    <th>Equipment</th>
+                    <th>Memo</th>
+                    <th>Export Certificate</th>
+                    <th>Inspection Certificate</th>
+                    <th>BL Copy</th>
+                    <th>Surrender BL</th> -->
+                    <th class="text-center">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-vehicle>
+                <tr>
+                    <td>{{vehicle.Id}}</td>
+                    <td>
+                        <div class="d-flex gap-2 align-items-center">
+                            <div class="flex-shrink-0"><img alt="" class="avatar-xs rounded-circle" [src]="vehicle.image"></div>
+                            <!-- <div class="flex-grow-1"> Jordan Kennedy </div> -->
+                        </div>
+                    </td>
+                    <!-- <td>{{vehicle.BuyDate}}</td>
+                    <td>{{vehicle.StockId}}</td>
+                    <td>{{vehicle.Chassis}}</td>
+                    <td>{{vehicle.Model}}</td>
+                    <td>{{vehicle.Year}}</td>
+                    <td>{{vehicle.ManufactureYear}}</td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.InYard" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.InYard" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+                        
+                    </td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.Documents" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.Documents" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+
+                    </td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.Sold" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.Sold" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+                    </td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.Paid" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.Paid" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+                    </td>
+                    <td>{{vehicle.Consignee}}</td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.ShipOK" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.ShipOK" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+                    </td>
+                    <td>{{vehicle.Inspection}}</td>
+                    <td>{{vehicle.Book}}</td>
+                    <td>{{vehicle.BL}}</td>
+                    <td class="text-center">
+                        
+                        <i *ngIf="vehicle.RelOK" class="ri-checkbox-circle-line fs-20 text-success align-middle"></i>
+                        <i *ngIf="!vehicle.RelOK" class="ri-close-circle-line fs-20 text-danger align-middle"></i>
+                    </td>
+                    <td>{{vehicle.Rel}}</td>
+                    <td>{{vehicle.Customer}}</td>
+                    <td>{{vehicle.ProfitJPY}}</td>
+                    <td>{{vehicle.BuyPriceJPY}}</td>
+                    <td>{{vehicle.AuctionFees}}</td>
+                    <td>{{vehicle.Transportation}}</td>
+                    <td>{{vehicle.ShipCharges}}</td>
+                    <td>{{vehicle.YardCost}}</td>
+                    <td>{{vehicle.RepairsJPY}}</td>
+                    <td>{{vehicle.InspectionCost}}</td>
+                    <td>{{vehicle.FreightCost}}</td>
+                    <td>{{vehicle.DHLCost}}</td>
+                    <td>{{vehicle.CNFInvoice}}</td>
+                    <td>{{vehicle.DepositRatio}}</td> -->
+                    <!-- <td>{{vehicle.ReceivedPercentage}}</td> -->
+                    <td> 
+                        <div class="badge bg-success m-2 text-left" *ngFor="let dep of vehicle.Deposit;">
+                            Amount: {{dep.Amount | currency }}<br/>
+                            Date: {{dep.Date}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="badge bg-info m-2 text-left" *ngFor="let ex of vehicle.ExchangeRate;">
+                            Rate: {{ex.Rate | currency}}<br/> Date: {{ex.Date}}<br />
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="badge bg-warning m-2 text-left" *ngFor="let djpy of vehicle.DepositJPY;">
+                            Amount: {{djpy.Amount | currency}}<br/> Date: {{djpy.Date}}
+                        </div>
+                    </td>
+                    <td>{{vehicle.RemainingBalance | currency}}</td>
+                    
+                    <!-- <td>{{vehicle.BIDAmount | currency}}</td>
+                    <td>{{vehicle.AuctionName}}</td>
+                    <td>{{vehicle.LOT}}</td>
+                    <td>{{vehicle.KM}}</td>
+                    <td>{{vehicle.M3}}</td>
+                    <td>{{vehicle.Color}}</td>
+                    <td>{{vehicle.POD}}</td>
+                    <td>{{vehicle.DepartureDate}}</td>
+                    <td>{{vehicle.Discharge}}</td>
+                    <td>{{vehicle.Country}}</td>
+                    <td>{{vehicle.ETA}}</td>
+                    <td>{{vehicle.ShippingLine}}</td>
+                    <td>{{vehicle.ShipNameVoyage}}</td>
+                    <td>{{vehicle.ConsigneeName}}</td>
+                    <td>{{vehicle.ConsigneeAddress}}</td>
+                    <td>{{vehicle.ConsigneePhone}}</td>
+                    <td>{{vehicle.ConsigneeEmail}}</td>
+                    <td>{{vehicle.NotifyParty}}</td>
+                    <td>{{vehicle.Equipment}}</td>
+                    <td>{{vehicle.Memo}}</td>
+                    <td>{{vehicle.ExportCertificate}}</td>
+                    <td>{{vehicle.InspectionCertificate}}</td>
+                    <td>{{vehicle.BLCopy}}</td>
+                    <td>{{vehicle.SurrenderBL}}</td> -->
+
+                    <td class="text-center">
+
+                        <div class="dropdown">
+                            <button class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
+                                type="button" #btnn (click)="op.toggle($event)">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
+                            <p-overlayPanel #op class="dropdown-menu">
+                                <ng-template pTemplate="content">
+                                    <ng-container>
+                                        <a class="dropdown-item light-red-bg-text" routerLink="/update-income"><i
+                                                class="pi pi-refresh"></i> Update</a>
+                                        <a class="dropdown-item light-red-bg-text" href="javascript:;"
+                                            (click)="removecutomer(vehicle.id)"><i class="pi pi-trash"></i> Delete</a>
+                                    </ng-container>
+                                </ng-template>
+                            </p-overlayPanel>
+                        </div>
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div><!-- end card-body -->
+
+</div>
+
+
+<p-dialog [visible]="removemodal" [modal]="true" [style]="{width: '28vw'}">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="mt-0 text-center">
+
+                <div class="mt-0 pt-2 fs-15 mx-4 mx-sm-5">
+                    <h4>Are you Sure ?</h4>
+                    <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                </div>
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                <button type="button" class="btn w-sm btn-light" (click)="removemodal = false">Cancel</button>
+                <button type="button" class="btn w-sm btn-danger " id="delete-record" (click)="removemodal = false">Yes,
+                    Delete It!</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<!--end modal -->
