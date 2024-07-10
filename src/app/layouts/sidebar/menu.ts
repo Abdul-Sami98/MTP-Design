@@ -1,7 +1,7 @@
 import { MenuItem } from './menu.model';
 
 // Customer Menu
-export const MENU1: MenuItem[] = [
+export const MENUCustomer: MenuItem[] = [
   {
     id: 1,
     label: 'Dashboard',
@@ -47,7 +47,7 @@ export const MENU1: MenuItem[] = [
 ];
 
 // Admin Menu
-export const MENU: MenuItem[] = [
+export const MENUAdmin: MenuItem[] = [
   {
     id: 1,
     label: 'Dashboard',

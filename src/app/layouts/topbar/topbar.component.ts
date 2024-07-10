@@ -32,12 +32,14 @@ export class TopbarComponent {
   readNotify: any;
   notificationActionsVisible = false;
   removemodal: any
+  role = localStorage.getItem('currentUserRole');
 
   @Output() mobileMenuButtonClicked = new EventEmitter();
   constructor(@Inject(DOCUMENT) private document: any, private eventService: EventService, public languageService: LanguageService, public _cookiesService: CookieService,) {
   }
 
   ngOnInit(): void {
+
     this.element = document.documentElement;
     this.cart = items;
     this.notifications = notification;

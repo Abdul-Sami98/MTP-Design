@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { customers } from './customers';
-import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
+import { MENUAdmin, MENUCustomer } from 'src/app/layouts/sidebar/menu';
 
 @Component({
   selector: 'app-customerListing',
@@ -12,8 +12,8 @@ export class customerListingComponent {
   
   removemodal = false;
 
-  MENU = MENU
-  MENU1 = MENU1
+  MENU = MENUAdmin
+  MENU1 = MENUCustomer
 
   removecutomer(id: any) {
     this.removemodal = true

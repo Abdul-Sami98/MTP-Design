@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { MENU } from './menu';
+import { MENUCustomer, MENUAdmin } from './menu';
 import { MenuItem } from './menu.model';
 
 @Component({
@@ -23,7 +23,14 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // Menu Items
-    this.menuItems = MENU;
+
+    const role = localStorage.getItem('currentUserRole');
+    if(role == 'admin'){
+      this.menuItems = MENUAdmin;
+    }
+    if(role == 'customer'){
+      this.menuItems = MENUCustomer;
+    }
     this.router.events.subscribe((event) => {
       if (document.documentElement.getAttribute('data-layout') != "twocolumn") {
         if (event instanceof NavigationEnd) {

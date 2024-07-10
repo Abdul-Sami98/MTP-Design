@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
+import { MENUAdmin, MENUCustomer } from 'src/app/layouts/sidebar/menu';
 
 @Component({
   selector: 'app-customer-detail',
@@ -124,8 +124,8 @@ export class CustomerDetailComponent {
   
   removemodal = false;
 
-  MENU = MENU
-  MENU1 = MENU1
+  MENU = MENUAdmin
+  MENU1 = MENUCustomer
 
   removecutomer(id: any) {
     this.removemodal = true

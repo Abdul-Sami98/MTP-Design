@@ -12,6 +12,8 @@ interface UploadEvent {
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+
+  email = localStorage.getItem('currentUserEmail');
   
   categoriesForm!: UntypedFormGroup;
 

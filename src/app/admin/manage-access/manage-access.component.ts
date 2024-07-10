@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
+import { MENUAdmin, MENUCustomer } from 'src/app/layouts/sidebar/menu';
 
 @Component({
   selector: 'app-manage-access',
@@ -7,6 +7,6 @@ import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
   styleUrls: ['./manage-access.component.scss']
 })
 export class ManageAccessComponent {
-  MENU = MENU
-  MENU1 = MENU1
+  MENU = MENUAdmin
+  MENU1 = MENUCustomer
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { users } from './users';
-import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
+import { MENUAdmin, MENUCustomer } from 'src/app/layouts/sidebar/menu';
 
 @Component({
   selector: 'app-usersListing',
@@ -10,8 +10,8 @@ import { MENU, MENU1 } from 'src/app/layouts/sidebar/menu';
 
 export class usersListingComponent {
 
-  MENU = MENU
-  MENU1 = MENU1
+  MENU = MENUAdmin
+  MENU1 = MENUCustomer
 
   users = users
   
